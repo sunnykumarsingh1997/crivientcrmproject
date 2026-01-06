@@ -1,5 +1,4 @@
 import { Facebook, Twitter, Linkedin } from "lucide-react";
-import { Facebook, Twitter, Linkedin, Globe } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -60,31 +59,9 @@ export default function Footer() {
               <Link to="/legal" className="hover:text-[#4F9CF9] cursor-pointer">Legal</Link>
             </li>
           </ul>
-           <h4 className="font-bold text-lg mb-6">Product</h4>
-           <ul className="space-y-4 text-gray-300 text-sm">
-             <li className="hover:text-[#4F9CF9] cursor-pointer transition-colors"><Link to="/">Overview</Link></li>
-             <li className="hover:text-[#4F9CF9] cursor-pointer transition-colors"><Link to="/">Pricing</Link></li>
-             <li className="hover:text-[#4F9CF9] cursor-pointer transition-colors"><Link to="/">Customer Stories</Link></li>
-           </ul>
         </div>
 
-        <div>
-           <h4 className="font-bold text-lg mb-6">Resources</h4>
-           <ul className="space-y-4 text-gray-300 text-sm">
-             <li className="hover:text-[#4F9CF9] cursor-pointer transition-colors"><Link to="/">Blog</Link></li>
-             <li className="hover:text-[#4F9CF9] cursor-pointer transition-colors"><Link to="/">Guides</Link></li>
-             <li className="hover:text-[#4F9CF9] cursor-pointer transition-colors"><Link to="/">Help Center</Link></li>
-           </ul>
-        </div>
 
-        <div>
-           <h4 className="font-bold text-lg mb-6">Company</h4>
-           <ul className="space-y-4 text-gray-300 text-sm">
-             <li className="hover:text-[#4F9CF9] cursor-pointer transition-colors"><Link to="/about">About</Link></li>
-             <li className="hover:text-[#4F9CF9] cursor-pointer transition-colors"><Link to="/">Careers</Link></li>
-             <li className="hover:text-[#4F9CF9] cursor-pointer transition-colors"><Link to="/">Legal</Link></li>
-           </ul>
-        </div>
 
       </div>
 
