@@ -49,7 +49,7 @@ export default function Footer() {
            <span>Status</span>
         </div>
         
-        <p className="text-sm text-gray-400">© 2021 Whitepace LLC.</p>
+        <p className="text-sm text-gray-400">© 2025 Crivient LLC.</p>
         
         <div className="flex gap-6">
           <Facebook className="hover:text-[#4F9CF9] cursor-pointer transition-colors" size={20} />
