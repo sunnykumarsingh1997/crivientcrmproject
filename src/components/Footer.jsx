@@ -1,4 +1,5 @@
-import { Facebook, Twitter, Linkedin } from "lucide-react";
+import { Facebook, Linkedin } from "lucide-react";
+import { FaXTwitter } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -64,7 +65,7 @@ export default function Footer() {
 
         <div className="flex gap-6">
           <Facebook className="hover:text-[#4F9CF9] cursor-pointer transition-colors" size={20} />
-          <Twitter className="hover:text-[#4F9CF9] cursor-pointer transition-colors" size={20} />
+          <FaXTwitter className="hover:text-[#4F9CF9] cursor-pointer transition-colors" size={20} />
           <Linkedin className="hover:text-[#4F9CF9] cursor-pointer transition-colors" size={20} />
         </div>
       </div>
