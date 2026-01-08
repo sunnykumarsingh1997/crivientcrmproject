@@ -1,14 +1,19 @@
 import { ArrowRight } from "lucide-react";
 import { motion } from "framer-motion";
 import crm from "../assets/customer-relationship-management-concept.jpg";
+import { useNavigate } from "react-router-dom";
+
 
 export default function Hero() {
+
+  const navigate = useNavigate();
+
   return (
     <section className="bg-[#111827] px-6 py-16 md:py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
-        
+
         {/* Left Content */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
@@ -23,17 +28,19 @@ export default function Hero() {
             long-lasting customer relationships all in one place.
           </p>
 
-          <motion.button 
+
+          <motion.button
+            onClick={() => navigate("/pricing")}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-[#D946EF] text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#C026D3] transition-all flex items-center gap-2 mx-auto md:mx-0 shadow-lg hover:shadow-xl"
           >
-            Try Crivient free <ArrowRight size={20} />
+            Try Crivient <ArrowRight size={20} />
           </motion.button>
         </motion.div>
 
         {/* Right Image */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, x: 50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
