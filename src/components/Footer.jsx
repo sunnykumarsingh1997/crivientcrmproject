@@ -8,8 +8,9 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-12 mb-16">
 
         <div className="space-y-6">
-          <h1 className="text-3xl font-bold">Crivient</h1>
-          <p className="text-gray-300 leading-relaxed text-sm">
+          <Link to="/" className="text-3xl font-bold">Crivient</Link>
+          {/* <h1 className="text-3xl font-bold">Crivient</h1> */}
+          <p className="text-gray-300 leading-relaxed text-sm mt-4">
             Empowering teams to build better relationships and close more deals.
           </p>
         </div>
@@ -19,9 +20,6 @@ export default function Footer() {
           <ul className="space-y-4 text-gray-300 text-sm">
             <li>
               <Link to="/products" className="hover:text-[#D946EF] cursor-pointer">Products</Link>
-            </li>
-            <li>
-              <Link to="/products" className="hover:text-[#D946EF] cursor-pointer">Services</Link>
             </li>
             <li>
               <Link to="/overview" className="hover:text-[#D946EF] cursor-pointer">Overview</Link>
@@ -71,6 +69,28 @@ export default function Footer() {
           <Facebook className="hover:text-[#D946EF] cursor-pointer transition-colors" size={20} />
           <FaXTwitter className="hover:text-[#D946EF] cursor-pointer transition-colors" size={20} />
           <Linkedin className="hover:text-[#D946EF] cursor-pointer transition-colors" size={20} />
+        </div>
+        <div>
+          <h4 className="font-bold text-lg mb-6">Contact</h4>
+          <ul className="space-y-4 text-gray-300 text-sm">
+            <li>
+              <span className="block text-gray-400">Email</span>
+              <a
+                href="mailto:support@crivient.com"
+                className="hover:text-[#D946EF]"
+              >
+                support@crivient.com
+              </a>
+            </li>
+            <li>
+              <span className="block text-gray-400">Phone</span>
+              <a
+                className="hover:text-[#D946EF]"
+              >
+                +91 9251011591
+              </a>
+            </li>
+          </ul>
         </div>
       </div>
     </footer>
