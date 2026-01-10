@@ -90,6 +90,14 @@ export default function Footer() {
                 +91 9251011591
               </a>
             </li>
+            <li>
+              <span className="block text-gray-400">ADDRESS</span>
+              <a
+                className="hover:text-[#D946EF]"
+              >
+              476/42 DHAN NADI VIJAY SINGH PATHIK NAGAR AJMER RAJASTHAN 305001
+              </a>
+            </li>
           </ul>
         </div>
       </div>
