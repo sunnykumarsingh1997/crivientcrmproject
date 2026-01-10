@@ -1,5 +1,6 @@
 import { CheckCircle } from "lucide-react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const plans = [
   {
@@ -101,14 +102,15 @@ export default function Pricing() {
                 ))}
               </ul>
 
-              <button
-                className={`w-full py-3 rounded-lg font-bold transition-colors ${plan.isPopular
+              <Link
+                to={`/apply/${plan.name}`}
+                className={`w-full py-3 rounded-lg font-bold transition-colors inline-block text-center ${plan.isPopular
                   ? "bg-[#D946EF] text-white hover:bg-[#C026D3]"
                   : "border border-gray-600 text-white hover:bg-gray-800"
                   }`}
               >
                 Get Started
-              </button>
+              </Link>
             </motion.div>
           ))}
         </motion.div>
