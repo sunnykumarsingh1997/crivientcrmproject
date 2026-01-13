@@ -6,6 +6,7 @@ import {
     ArrowRight,
     Search
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Resources() {
     return (
@@ -37,9 +38,16 @@ export default function Resources() {
                             Find quick answers and step-by-step guidance through our centralized Help Center. It is built to help
                             users resolve issues efficiently and continue working without disruption.
                         </p>
-                        <button className="text-[#D946EF] font-bold text-lg flex items-center gap-2 hover:gap-3 transition-all group">
-                            Visit Help Center <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        <Link
+                            to="/help-center"
+                            className="text-[#D946EF] font-bold text-lg flex items-center gap-2 hover:gap-3 transition-all group"
+                        >
+                            Visit Help Center
+                            <ArrowRight
+                                size={20}
+                                className="group-hover:translate-x-1 transition-transform"
+                            />
+                        </Link>
                     </div>
 
                     {/* Knowledge Base */}
@@ -82,9 +90,16 @@ export default function Resources() {
                             Need personalized help? Our support team is available to provide timely and professional assistance
                             whenever you need it.
                         </p>
-                        <button className="text-[#D946EF] font-bold text-lg flex items-center gap-2 hover:gap-3 transition-all group">
-                            Contact Support <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        <Link
+                            to="/contact"
+                            className="text-[#D946EF] font-bold text-lg flex items-center gap-2 hover:gap-3 transition-all group"
+                        >
+                            Contact Support
+                            <ArrowRight
+                                size={20}
+                                className="group-hover:translate-x-1 transition-transform"
+                            />
+                        </Link>
                     </div>
 
                 </div>
