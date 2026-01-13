@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import {
     LifeBuoy,
     BookOpen,
@@ -52,9 +53,9 @@ export default function Resources() {
                             Access a comprehensive collection of articles, best practices, and real-world use cases to help your
                             team fully leverage CRM capabilities.
                         </p>
-                        <button className="text-[#D946EF] font-bold text-lg flex items-center gap-2 hover:gap-3 transition-all group">
+                        <Link to="/knowledge-base" className="text-[#D946EF] font-bold text-lg flex items-center gap-2 hover:gap-3 transition-all group">
                             Browse Knowledge Base <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
-                        </button>
+                        </Link>
                     </div>
 
                     {/* Product Documentation */}
