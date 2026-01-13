@@ -7,7 +7,7 @@ import {
     ArrowRight,
     Search
 } from "lucide-react";
-import { Link } from "react-router-dom";
+
 
 export default function Resources() {
     return (
