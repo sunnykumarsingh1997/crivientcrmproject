@@ -5,8 +5,8 @@ import { useAuth } from "../crm/context/AuthContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const { state } = useAuth();
-  const isLoggedIn = state.isAuthenticated && state.user;
+  const { isAuthenticated, user } = useAuth();
+  const isLoggedIn = isAuthenticated && user;
 
   return (
     <nav className="bg-[#111827] text-white px-6 md:px-10 py-4 shadow-md sticky top-0 z-50">
