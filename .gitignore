@@ -38,3 +38,5 @@ server/dist
 *.sln
 *.sw?
 nul
+.vercel
+.env*.local
