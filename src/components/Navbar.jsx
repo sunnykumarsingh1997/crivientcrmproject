@@ -1,9 +1,12 @@
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useAuth } from "../crm/context/AuthContext";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const { state } = useAuth();
+  const isLoggedIn = state.isAuthenticated && state.user;
 
   return (
     <nav className="bg-[#111827] text-white px-6 md:px-10 py-4 shadow-md sticky top-0 z-50">
@@ -19,12 +22,25 @@ export default function Navbar() {
           <li className="hover:text-[#D946EF] cursor-pointer transition-colors"><Link to="/pricing">Pricing</Link></li>
         </ul>
 
-        <div className="hidden md:block">
-          <Link to="/request-demo">
-            <button className="bg-[#D946EF] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#C026D3] transition-colors">
-              Request Demo
-            </button>
-          </Link>
+        <div className="hidden md:flex items-center gap-3">
+          {isLoggedIn ? (
+            <Link to="/dashboard">
+              <button className="bg-[#D946EF] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#C026D3] transition-colors">
+                Dashboard
+              </button>
+            </Link>
+          ) : (
+            <>
+              <Link to="/login" className="text-sm font-medium hover:text-[#D946EF] transition-colors px-4 py-2">
+                Sign In
+              </Link>
+              <Link to="/signup">
+                <button className="bg-[#D946EF] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#C026D3] transition-colors">
+                  Try Free
+                </button>
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Mobile Menu Toggle */}
@@ -46,11 +62,24 @@ export default function Navbar() {
             <li className="hover:text-[#D946EF] cursor-pointer"><Link to="/resources" onClick={() => setIsOpen(false)}>Resources</Link></li>
             <li className="hover:text-[#D946EF] cursor-pointer"><Link to="/pricing" onClick={() => setIsOpen(false)}>Pricing</Link></li>
           </ul>
-          <Link to="/request-demo" className="w-3/4" onClick={() => setIsOpen(false)}>
-            <button className="bg-[#D946EF] text-white px-6 py-3 rounded-lg font-semibold w-full">
-              Request Demo
-            </button>
-          </Link>
+          {isLoggedIn ? (
+            <Link to="/dashboard" className="w-3/4" onClick={() => setIsOpen(false)}>
+              <button className="bg-[#D946EF] text-white px-6 py-3 rounded-lg font-semibold w-full">
+                Dashboard
+              </button>
+            </Link>
+          ) : (
+            <div className="flex flex-col items-center gap-3 w-3/4">
+              <Link to="/login" className="text-lg font-medium hover:text-[#D946EF] transition-colors" onClick={() => setIsOpen(false)}>
+                Sign In
+              </Link>
+              <Link to="/signup" className="w-full" onClick={() => setIsOpen(false)}>
+                <button className="bg-[#D946EF] text-white px-6 py-3 rounded-lg font-semibold w-full">
+                  Try Free
+                </button>
+              </Link>
+            </div>
+          )}
         </div>
       )}
     </nav>

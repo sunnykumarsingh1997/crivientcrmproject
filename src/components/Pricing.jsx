@@ -103,13 +103,13 @@ export default function Pricing() {
               </ul>
 
               <Link
-                to={`/apply/${plan.name}`}
+                to={`/signup?plan=${encodeURIComponent(plan.name)}`}
                 className={`w-full py-3 rounded-lg font-bold transition-colors inline-block text-center ${plan.isPopular
                   ? "bg-[#D946EF] text-white hover:bg-[#C026D3]"
                   : "border border-gray-600 text-white hover:bg-gray-800"
                   }`}
               >
-                Get Started
+                Start Free Trial
               </Link>
             </motion.div>
           ))}

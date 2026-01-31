@@ -30,12 +30,12 @@ export default function Hero() {
 
 
           <motion.button
-            onClick={() => navigate("/pricing")}
+            onClick={() => navigate("/signup")}
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="bg-[#D946EF] text-white px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#C026D3] transition-all flex items-center gap-2 mx-auto md:mx-0 shadow-lg hover:shadow-xl"
           >
-            Try Crivient <ArrowRight size={20} />
+            Start Free Trial <ArrowRight size={20} />
           </motion.button>
         </motion.div>
 
