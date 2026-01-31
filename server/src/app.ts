@@ -11,6 +11,9 @@ import './models';
 
 const app = express();
 
+// Trust first proxy (Nginx) for correct IP detection behind reverse proxy
+app.set('trust proxy', 1);
+
 // Security middleware
 app.use(helmet());
 

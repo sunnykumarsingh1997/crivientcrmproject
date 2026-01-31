@@ -21,6 +21,8 @@ import ApplyForm from "./components/ApplyForm";
 import Documentation from "./components/Documentation";
 import KnowledgeBase from "./components/KnowledgeBase";
 
+import { Toaster } from "react-hot-toast";
+
 // CRM imports
 import { AuthProvider } from "./crm/context/AuthContext";
 import Login from "./crm/pages/auth/Login";
@@ -77,6 +79,7 @@ function MarketingLayout() {
 export default function App() {
   return (
     <AuthProvider>
+      <Toaster position="top-right" />
       <Router>
         <Routes>
           {/* Auth pages - standalone, no navbar/sidebar */}
