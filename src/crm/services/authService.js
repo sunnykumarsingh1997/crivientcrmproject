@@ -23,4 +23,9 @@ export const authService = {
   async changePassword(currentPassword, newPassword) {
     await api.post('/auth/change-password', { currentPassword, newPassword });
   },
+
+  async activateLicense(licenseKey) {
+    const response = await api.post('/auth/activate-license', { licenseKey });
+    return response.data;
+  },
 };

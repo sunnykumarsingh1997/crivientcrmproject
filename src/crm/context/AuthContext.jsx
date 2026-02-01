@@ -76,8 +76,15 @@ export function AuthProvider({ children }) {
     dispatch({ type: 'LOGOUT' });
   };
 
+  const refreshUser = async () => {
+    try {
+      const data = await authService.getMe();
+      dispatch({ type: 'SET_USER', payload: data.user });
+    } catch {}
+  };
+
   return (
-    <AuthContext.Provider value={{ ...state, login, register, logout, checkAuth }}>
+    <AuthContext.Provider value={{ ...state, login, register, logout, checkAuth, refreshUser }}>
       {children}
     </AuthContext.Provider>
   );

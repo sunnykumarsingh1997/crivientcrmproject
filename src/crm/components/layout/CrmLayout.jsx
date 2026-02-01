@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import { Navigate, Outlet } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import Sidebar from './Sidebar';
 import Header from './Header';
 import TrialBanner from '../TrialBanner';
+import LicenseModal from '../LicenseModal';
 
 export default function CrmLayout() {
-  const { isAuthenticated, isLoading, user } = useAuth();
+  const { isAuthenticated, isLoading, user, refreshUser } = useAuth();
+  const [dismissed, setDismissed] = useState(false);
 
   if (isLoading) {
     return (
@@ -19,12 +22,10 @@ export default function CrmLayout() {
     return <Navigate to="/login" replace />;
   }
 
-  if (user?.trial_end_date) {
-    const trialEnd = new Date(user.trial_end_date);
-    if (trialEnd < new Date() && user.subscription_status !== 'active') {
-      return <Navigate to="/trial-expired" replace />;
-    }
-  }
+  const isActivated = user?.subscription_status === 'active';
+  const trialExpired = user?.trial_end_date && new Date(user.trial_end_date) < new Date();
+  const canDismiss = !trialExpired;
+  const showModal = !isActivated && !dismissed;
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -36,6 +37,13 @@ export default function CrmLayout() {
           <Outlet />
         </main>
       </div>
+      {showModal && (
+        <LicenseModal
+          canDismiss={canDismiss}
+          onClose={() => setDismissed(true)}
+          onActivated={() => refreshUser()}
+        />
+      )}
     </div>
   );
 }

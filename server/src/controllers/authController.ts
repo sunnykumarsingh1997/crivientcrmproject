@@ -122,6 +122,50 @@ export const changePasswordValidation = [
     .withMessage('New password must be at least 8 characters'),
 ];
 
+export const activateLicenseValidation = [
+  body('licenseKey').trim().notEmpty().withMessage('License key is required'),
+];
+
+export const activateLicense = async (req: AuthRequest, res: Response): Promise<void> => {
+  try {
+    if (!req.user) {
+      res.status(401).json({ message: 'Not authenticated' });
+      return;
+    }
+
+    const { licenseKey } = req.body;
+    const masterKey = process.env.LICENSE_KEY;
+
+    if (!masterKey) {
+      res.status(500).json({ message: 'License system is not configured' });
+      return;
+    }
+
+    if (licenseKey.trim().toUpperCase() !== masterKey.trim().toUpperCase()) {
+      res.status(400).json({ message: 'Invalid license key' });
+      return;
+    }
+
+    const user = await User.findByPk(req.user.id);
+    if (!user) {
+      res.status(404).json({ message: 'User not found' });
+      return;
+    }
+
+    user.subscription_status = 'active' as any;
+    user.subscription_plan = 'licensed';
+    await user.save();
+
+    res.json({
+      message: 'License activated successfully',
+      user: user.toJSON(),
+    });
+  } catch (error) {
+    console.error('License activation error:', error);
+    res.status(500).json({ message: 'An error occurred during activation' });
+  }
+};
+
 export const registerValidation = [
   body('name').trim().notEmpty().withMessage('Name is required'),
   body('email').isEmail().normalizeEmail().withMessage('Valid email is required'),

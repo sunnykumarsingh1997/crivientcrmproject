@@ -8,6 +8,8 @@ import {
   changePasswordValidation,
   register,
   registerValidation,
+  activateLicense,
+  activateLicenseValidation,
 } from '../controllers/authController';
 import { authenticate } from '../middleware/auth';
 import { validate } from '../middleware/validate';
@@ -26,6 +28,12 @@ router.post(
   authenticate,
   validate(changePasswordValidation),
   changePassword
+);
+router.post(
+  '/activate-license',
+  authenticate,
+  validate(activateLicenseValidation),
+  activateLicense
 );
 
 export default router;
